@@ -1,7 +1,7 @@
 [project]
-name = "agenture-ws"
+name = "writings_with_code"
 version = "0.1.0"
-description = "Add your description here"
+description = "Technical publications with code examples"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
