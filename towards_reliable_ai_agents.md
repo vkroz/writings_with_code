@@ -77,7 +77,7 @@ The difference is important:
 For example, suppose an agent has a 90% probability of succeeding on any individual run. Assuming independent runs:
 
 $$
-\operatorname{pass^8} \approx 0.9^8 \approx 43%
+\mathrm{pass}^{8} \approx 0.9^{8} \approx 43\%
 $$
 
 The agent looks strong when measured by single-run accuracy, but it has less than a 50% chance of completing the same task correctly eight times in a row.
@@ -178,15 +178,7 @@ For example, if tasks assigned confidence between 0.7 and 0.8 have an average co
 **Discrimination**
 
 $$
-P_{\text{AUROC}}
-=
-\Pr
-\left(
-c_i>c_j
-\mid
-y_i=1,
-y_j=0
-\right)
+P_{\mathrm{AUROC}} = \Pr\left(c_i > c_j \mid y_i = 1,\ y_j = 0\right)
 $$
 
 1.0 is perfect ranking. 0.5 is random. Below 0.5, failures draw higher confidence than successes.
@@ -196,11 +188,8 @@ Calibration and discrimination answer different questions. Calibration asks whet
 **Brier score**
 
 $$
-P_{\text{brier}}
-
-1-\frac{1}{N}
-\sum_{i=1}^{N}
-(c_i-y_i)^2
+P_{\mathrm{Brier}} =
+1 - \frac{1}{N}\sum_{i=1}^{N}(c_i - y_i)^2
 $$
 
 The Brier score measures the squared difference between confidence and outcome for every task. A confident success produces little error, while a confident failure produces a large error. Because it evaluates each prediction directly, it reflects both calibration and discrimination. The paper reports one minus the usual Brier loss so that, as with the other metrics, higher values are better.
